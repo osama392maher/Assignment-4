@@ -306,3 +306,36 @@ void lowercase_file ()
 
 	file.close();
 }
+void num_of_word(){
+	file.open(filename, ios::in);
+	string inputstr;
+	string word;
+	int count = 0;
+	
+	cout << "please enter the word you want to count the num of times it exists in the file : " << endl;
+	cin >> inputstr;
+	for (int i = 0;i < inputstr.length();i++)
+			{
+				inputstr[i] = toupper(inputstr[i]);
+			}
+
+		while (!file.eof()) {
+			while (file >> word)
+			{
+				for (int i = 0;i < word.length();i++) {
+					line[i] = toupper(word[i]);
+				}
+				
+				if (inputstr == word) {
+					count += 1;
+				}
+			}
+			
+		}
+
+		cout << count;
+		file.close();
+	
+}
+
+
