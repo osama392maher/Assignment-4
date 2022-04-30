@@ -338,4 +338,39 @@ void num_of_word(){
 	
 }
 
+void  _1st_caps_file(){
+ 	file.open(filename, ios::in);
+        string new_str;
+		while (!file.eof()) {
+			new_str += (char)file.get();
+		}
+		cout << " \n  the original File    : \n ";
+		cout << new_str << "\n\n";
+		cout << "   File after making the first letter Capital :  \n\n";
+		new_str[0] =(char)toupper(new_str[0]);
+		cout << (char)toupper(new_str[0]);
+		for (int i = 1;i < new_str.length();i++) {
+			if ((new_str[i] == ' ') || (new_str[i] == '\n')) {
+				new_str[i] = (char)new_str[i];
+				(new_str[i + 1]) = (char)toupper(new_str[i + 1]);
+				i += 1;
+			}
+			else
+			{
+				new_str[i] = (char)tolower((char)new_str[i]);
+			}
+		}
+		for (int i = 1;i < new_str.length();i++) {
+			cout << new_str[i];
+		}
+		file.close();
+	
+	int len = new_str.length();
+	file.open(filename, ios::out);
+	for (size_t i = 0; i < len - 1; i++)
+	{
+		file << new_str[i];
+	}
 
+	file.close();
+}
