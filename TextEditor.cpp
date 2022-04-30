@@ -19,8 +19,13 @@ int main()
         cout << "   3. Empty the file" << endl;
         cout << "   4. Encrypt the file" << endl;
         cout << "   5. Decrypt the file" << endl;
+        cout << "   6. Merage another file" << endl;
+        cout << "   7. Count the number of words in the file" << endl;
+        cout << "   8. Count the number of characters in the file" << endl;
+        cout << "   9. Count the number of lines in the file" << endl;
+        cout << "   10.Search for a word in the file" << endl;
         cout << "   12. Turn the file content to upper case." << endl;
-	cout << "   13. Turn the file content to lower case." << endl;
+	    cout << "   13. Turn the file content to lower case." << endl;
         cout << "   16. Exit" << endl;
         cout << "Please Enter your choice ==> ";
         
@@ -47,15 +52,20 @@ int main()
                 decrypt_file();
                 break;
             case 6:
-                continue;
+                merge_files();
+                break;
             case 7:
-                continue;
+                words_of_file();
+                break;
             case 8:
-                continue;
+                characters_of_file();
+                break;
             case 9:
-                continue;
+                lines_of_file();
+                break;
             case 10:
-                continue;
+                search_for_word();
+                break;
             case 11:
                 continue;
             case 12:

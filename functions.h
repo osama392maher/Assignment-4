@@ -137,6 +137,136 @@ void decrypt_file()
     tempfile.close();
 }
 
+void merge_files()
+{
+    fstream file1;
+    char fileName1[100];
+
+    fstream file2;
+    char fileName2[100];
+
+    cout << "Please enter The first file name: " << endl;
+    cin.getline(fileName1, 100);
+    file1.open(fileName1, ios::app);
+
+    cout << "Please enter The second file name: " << endl;
+    cin.getline(fileName2, 100);
+    file2.open(fileName2, ios::in);
+
+    if (file2.fail())
+        cout << "Invalid file name" << endl;
+
+    else {
+
+        string space = " ";
+        string text;
+        file << space;
+
+        while (getline(file2, text)) {
+            file2 >> text;
+            file << text;
+        }
+    }
+    file.close();
+    file2.close();
+}
+
+void words_of_file() {
+    fstream file;
+    char filename[100];
+
+    cout << "Enter The File Name: ";
+    cin >> filename;
+    string line;
+    int word = 0;
+
+    file.open(filename, ios::in);
+    while (file >> line) {
+        word++;
+    }
+    cout << "The number of words in the file is: " << word << endl;
+    file.close();
+}
+
+void characters_of_file() {
+    fstream file;
+    char filename[100];
+
+    cout << "Enter The File Name: ";
+    cin >> filename;
+    string line;
+    int character = 0;
+
+    file.open(filename, ios::in);
+
+    while (getline(file, line)) {
+        for (int i = 0; i < line.length(); i++) {
+            if (line[i] != ' ')
+                character++;
+        }
+    }
+    file.close();
+    cout << "The number of characters in the file is: " << character << endl;
+}
+
+void lines_of_file() {
+    fstream file;
+    char filename[100];
+    int number = 0;
+
+    cout << "Enter The File Name: ";
+    cin >> filename;
+
+    file.open(filename, ios::in);
+    string line;
+
+    while (file) {
+        getline(file, line);
+        number++;
+    }
+    number -= 1;
+    cout << "The number of lines in the file is: " << number << endl;
+
+    file.close();
+}
+
+void search_for_word() {
+    fstream file;
+    char filename[100];
+    string line;
+    string word;
+
+    cout << "Enter The File Name: ";
+    cin >> filename;
+    file.open(filename, ios::in);
+
+    cout << "Enter a word to search about it the file: ";
+    cin >> word;
+
+    while (file >> line) {
+        for (int i = 0; i < line.length(); i++) {
+            line[i] = tolower(line[i]);
+        }
+
+        for (int i = 0; i < word.length(); i++) {
+            word[i] = tolower(word[i]);
+        }
+
+        if (word == line) {
+            cout << "Word was found in the file" << endl;
+            break;
+        }
+
+        else if (file.eof()) {
+            if (word != line) {
+                cout << "Word was not found in the file" << endl;
+            }
+        }
+    }
+    file.close();
+
+}
+
 void uppercase_file ()
 {
     	file.open(filename, ios::in);
