@@ -27,6 +27,7 @@ int main()
 	cout << "   11. count the number of times a word exists in the file"<<endl;
         cout << "   12. Turn the file content to upper case." << endl;
 	cout << "   13. Turn the file content to lower case." << endl;
+	cout << "   14. Turn file content to 1st caps" << endl;
         cout << "   16. Exit" << endl;
         cout << "Please Enter your choice ==> ";
         
@@ -77,7 +78,8 @@ int main()
 		lowercase_file();
                 break;
             case 14:
-                continue;
+               _1st_caps_file();
+		break;
             case 15:
                 continue;
             case 16:
