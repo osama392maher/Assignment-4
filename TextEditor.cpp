@@ -20,6 +20,7 @@ int main()
         cout << "   4. Encrypt the file" << endl;
         cout << "   5. Decrypt the file" << endl;
         cout << "   12. Turn the file content to upper case." << endl;
+	cout << "   13. Turn the file content to lower case." << endl;
         cout << "   16. Exit" << endl;
         cout << "Please Enter your choice ==> ";
         
@@ -61,7 +62,8 @@ int main()
                 uppercase_file();
                 break;
             case 13:
-                continue;
+		lowercase_file();
+                break;
             case 14:
                 continue;
             case 15:
