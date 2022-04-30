@@ -24,7 +24,7 @@ int main()
         cout << "   8. Count the number of characters in the file" << endl;
         cout << "   9. Count the number of lines in the file" << endl;
         cout << "   10. Search for a word in the file" << endl;
-	cout<<" 11. count the number of times a word exists in the file"<<endl;
+	cout << "   11. count the number of times a word exists in the file"<<endl;
         cout << "   12. Turn the file content to upper case." << endl;
 	cout << "   13. Turn the file content to lower case." << endl;
         cout << "   16. Exit" << endl;
