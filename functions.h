@@ -139,15 +139,12 @@ void decrypt_file()
 
 void merge_files()
 {
-    fstream file1;
-    char fileName1[100];
 
     fstream file2;
     char fileName2[100];
 
-    cout << "Please enter The first file name: " << endl;
-    cin.getline(fileName1, 100);
-    file1.open(fileName1, ios::app);
+
+    file.open(filename, ios::app);
 
     cout << "Please enter The second file name: " << endl;
     cin.getline(fileName2, 100);
@@ -172,11 +169,6 @@ void merge_files()
 }
 
 void words_of_file() {
-    fstream file;
-    char filename[100];
-
-    cout << "Enter The File Name: ";
-    cin >> filename;
     string line;
     int word = 0;
 
@@ -189,11 +181,7 @@ void words_of_file() {
 }
 
 void characters_of_file() {
-    fstream file;
-    char filename[100];
 
-    cout << "Enter The File Name: ";
-    cin >> filename;
     string line;
     int character = 0;
 
@@ -210,12 +198,8 @@ void characters_of_file() {
 }
 
 void lines_of_file() {
-    fstream file;
-    char filename[100];
-    int number = 0;
 
-    cout << "Enter The File Name: ";
-    cin >> filename;
+    int number = 0;
 
     file.open(filename, ios::in);
     string line;
@@ -231,13 +215,10 @@ void lines_of_file() {
 }
 
 void search_for_word() {
-    fstream file;
-    char filename[100];
+
     string line;
     string word;
 
-    cout << "Enter The File Name: ";
-    cin >> filename;
     file.open(filename, ios::in);
 
     cout << "Enter a word to search about it the file: ";
