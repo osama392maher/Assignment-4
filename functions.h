@@ -136,3 +136,32 @@ void decrypt_file()
     file.close();
     tempfile.close();
 }
+
+void uppercase_file ()
+{
+    	file.open(filename, ios::in);
+    	string new_str;
+		while (!file.eof()) {
+			new_str += (char)file.get();
+		}
+		cout << new_str;
+		cout << endl << endl;
+		cout << "The uppercase File .\n" << endl;
+		for (int i = 0;i < new_str.length();i++)
+		{
+			
+				new_str[i] = (char)toupper(new_str[i]);
+			
+		}
+		cout << new_str;
+		file.close();
+		
+	int len = new_str.length();
+	file.open(filename, ios::out);
+	for (size_t i = 0; i < len-1; i++)
+	{
+		file << new_str[i];
+	}
+
+	file.close();
+}
