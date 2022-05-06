@@ -3,3 +3,6 @@ TextEditor
 hello.txt
 functions
 temp.txt
+.DS_Store
+*.json
+Logging System/main
