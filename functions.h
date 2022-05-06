@@ -323,7 +323,7 @@ void num_of_word(){
 			while (file >> word)
 			{
 				for (int i = 0;i < word.length();i++) {
-					line[i] = toupper(word[i]);
+					word[i] = toupper(word[i]);
 				}
 				
 				if (inputstr == word) {
