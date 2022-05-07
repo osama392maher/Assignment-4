@@ -2,6 +2,8 @@
 #include <fstream>
 #include <regex>
 #include <vector>
+#include<conio.h>
+#include<string>
 
 using namespace std;
 
@@ -143,3 +145,62 @@ void user_register()
     
     vector_to_file();
 }
+void user_login(){
+user users;
+	int ch;
+	string password, username;
+	int i = 1;
+	while (i < 4)
+	{
+		cout << "Hello,please enter your username :\n ";
+		cin >> username;
+		cout << "Enter your password :\n ";
+		ch = _getch();
+
+		while (ch != 13)
+		{
+			if (ch == 8) {
+				if (!password.empty()) {
+					cout << "\b \b";
+					password.pop_back();
+				}
+				ch = _getch();
+				continue;
+			}
+			password.push_back(ch);
+			cout << '*';
+			ch = _getch();
+		}
+	
+		if (password == users.password && username == users.username) {
+			cout << "Successful login, welcome, "<<username << "\n";
+			break;
+
+		}
+		else {
+			if (i == 3) {
+				cout << "!!you are denied access to the sysytem ";
+				break;
+			}
+			cout << "failed login. try again \n";
+		}
+		i++;
+	}
+
+}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
