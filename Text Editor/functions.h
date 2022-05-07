@@ -147,7 +147,8 @@ void merge_files()
     file.open(filename, ios::app);
 
     cout << "Please enter The second file name: " << endl;
-    cin.getline(fileName2, 100);
+    cin >> fileName2;
+    
     file2.open(fileName2, ios::in);
 
     if (file2.fail())
