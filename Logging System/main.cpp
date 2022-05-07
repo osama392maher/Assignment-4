@@ -3,6 +3,8 @@
 #include <regex>
 #include <vector>
 #include "functions.h"
+#include<conio.h>
+#include<string>
 
 using namespace std;
 
