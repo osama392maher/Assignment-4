@@ -133,6 +133,30 @@ bool valid_password(string password)
     return regex_match(password, strongPassword);
 }
 
+string encryption(string x) {
+
+    char keys[] = { 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','0','1','2','3','4','5','6','7','8','9','_' };
+    string values[] = { ".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--",
+        "-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--..","-----",".----","..---","...--","....-",".....","-....","--...","---..","----.","..--.-" };
+
+    string  encryption_password = "";        //word after encryption
+
+    for (int i = 0; i < x.length(); i++)
+    {
+        x[i] = toupper(x[i]);
+
+        for (int inx = 0; inx < 37; inx++) {
+            if (x[i] == keys[inx]) {
+                //for loop to encrypt every char 
+                encryption_password += values[inx] + " ";
+
+            }
+        }
+    }
+    x = encryption_password;
+    return x;
+}
+
 void user_register()
 {
     file_to_vector();
@@ -188,6 +212,9 @@ void user_register()
             ch = _getch();
         }
     } while (!(valid_password(newuser.password)&& !password_exist(newuser.password)));
+   
+    encryption(newuser.password);
+    newuser.password = encryption(newuser.password);
     
     string password2;
     do {
@@ -211,6 +238,7 @@ void user_register()
         }
     }
     while (password2!= newuser.password);
+
     
     users_vector.push_back(newuser);
     
