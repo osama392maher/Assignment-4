@@ -10,3 +10,7 @@ Logging System/main
 *.txt
 Logging System/draft.cpp
 Logging System/draft
+*.exe
+*.exe
+Logging System/main.exe
+*.txt

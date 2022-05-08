@@ -9,9 +9,10 @@
 using namespace std;
 
 int main()
-{
-    user_register();
-    user_login();
+{  
+    display_menu();
 }
+
+
 
 
