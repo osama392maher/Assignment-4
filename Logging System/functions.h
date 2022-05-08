@@ -91,6 +91,20 @@ bool mobile_exist(string mobile)
     return exist;
 }
 
+bool password_exist(string password)
+{
+    bool exist = false;
+    for (int i = 0; i < users_vector.size(); i++)
+    {
+        if (password == users_vector[i].password)
+        {
+            exist = true;
+            return exist;
+        }
+    }
+    return exist;
+}
+
 bool valid_email(string email)
 {
     const regex emailpattern("(\\w+)(\\.|_)?(\\w*)@(\\w+)(\\.(\\w+))+");
@@ -110,6 +124,13 @@ bool valid_name(string name)
     const regex namepattern("^[a-zA-z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*");
 
     return regex_match(name, namepattern);
+}
+
+bool valid_password(string password)
+{
+    const regex strongPassword("((?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[!?.,<>:;'@#$%^&*-=+~_\\]\\[}{)(/|])[a-zA-Z0-9!?.,<>:;'@#$%^&*-=+~_\\]\\[}{)(/|]{8,})");
+
+    return regex_match(password, strongPassword);
 }
 
 void user_register()
@@ -140,11 +161,62 @@ void user_register()
         cin >> newuser.username;
     }
     while(username_exist(newuser.username));
+   
+    cout << " \nThe letters are allowed, requiredand conditions that must apply to the password : \n";
+    cout << "1.You can choose uppercase letters, lowercase letter, digits, and special chararcters. \n";
+    cout << "2.It must contain at least 8 characters\n";
+    cout << "3.It should include at least an uppercase letter, a lowercase letter, and one digit \n";
+    cout << "4.Remember that uppercase letters are different from lowercase letters \n";
+    
+    do {
+        cout << "\nEnter a strong password: \n";
+        char ch;
+        ch = _getch();
+
+        while (ch != 13)
+        {
+            if (ch == 8) {
+                if (!newuser.password.empty()) {
+                    cout << "\b \b";
+                    newuser.password.pop_back();
+                }
+                ch = _getch();
+                continue;
+            }
+            newuser.password.push_back(ch);
+            cout << '*';
+            ch = _getch();
+        }
+    } while (!(valid_password(newuser.password)&& !password_exist(newuser.password)));
+    
+    string password2;
+    do {
+        cout << "\nRepeat your password: \n";
+        char ch;
+        ch = _getch();
+
+        while (ch != 13)
+        {
+            if (ch == 8) {
+                if (!password2.empty()) {
+                    cout << "\b \b";
+                    password2.pop_back();
+                }
+                ch = _getch();
+                continue;
+            }
+            password2.push_back(ch);
+            cout << '*';
+            ch = _getch();
+        }
+    }
+    while (password2!= newuser.password);
     
     users_vector.push_back(newuser);
     
     vector_to_file();
 }
+
 void user_login(){
 user users;
 	int ch;
@@ -188,19 +260,4 @@ user users;
 	}
 
 }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
