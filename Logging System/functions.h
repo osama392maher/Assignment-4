@@ -135,7 +135,7 @@ bool valid_password(string password)
 
 string encryption(string x) {
 
-    char keys[] = { 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','0','1','2','3','4','5','6','7','8','9','_' };
+    char keys[] = { 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','0','1','2','3','4','5','6','7','8','9','_','*'};
     string values[] = { ".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--",
         "-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--..","-----",".----","..---","...--","....-",".....","-....","--...","---..","----.","..--.-" };
 
@@ -213,12 +213,10 @@ void user_register()
         }
     } while (!(valid_password(newuser.password)&& !password_exist(newuser.password)));
    
-    encryption(newuser.password);
-    newuser.password = encryption(newuser.password);
     
     string password2;
     do {
-        cout << "\nRepeat your password: \n";
+        cout << "\nEnter your password again: \n";
         char ch;
         ch = _getch();
 
@@ -237,11 +235,17 @@ void user_register()
             ch = _getch();
         }
     }
-    while (password2!= newuser.password);
 
+    while (password2!= newuser.password);
     
+    encryption(newuser.password);
+    newuser.password = encryption(newuser.password);
+   
     users_vector.push_back(newuser);
     
+   if (valid_email && valid_mobile && valid_name && valid_password && !username_exist && !email_exist && !mobile_exist && !password_exist) {
+        users_vector.push_back(newuser);
+    }
     vector_to_file();
 }
 
