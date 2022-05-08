@@ -243,9 +243,6 @@ void user_register()
    
     users_vector.push_back(newuser);
     
-   if (valid_email && valid_mobile && valid_name && valid_password && !username_exist && !email_exist && !mobile_exist && !password_exist) {
-        users_vector.push_back(newuser);
-    }
     vector_to_file();
 }
 
