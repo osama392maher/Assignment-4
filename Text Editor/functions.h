@@ -334,7 +334,7 @@ void num_of_word(){
 			
 		}
 
-		cout << count;
+		cout <<"number of words in the file is : "<<count;
 		file.close();
 	
 }
@@ -374,4 +374,24 @@ void  _1st_caps_file(){
 	}
 
 	file.close();
+}
+void Save(){
+        file.open(filename, ios::in);
+        string new_str;
+		while (!file.eof()) {
+			new_str += (char)file.get();
+		}
+	
+
+        ofstream file2;	char name2[81];
+	cout << "Hello user,if you want to save the under different file plaese enter the name: \n";
+	cin >> name2;
+	file2.open(name2);
+	int len = new_str.length();
+	for (size_t i = 0; i < len - 1; i++)
+	{
+		file2 << new_str[i];
+	}
+
+
 }
