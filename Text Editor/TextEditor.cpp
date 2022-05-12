@@ -28,6 +28,7 @@ int main()
         cout << "   12. Turn the file content to upper case." << endl;
 	cout << "   13. Turn the file content to lower case." << endl;
 	cout << "   14. Turn file content to 1st caps" << endl;
+	cout << "   15. Save" << endl;
         cout << "   16. Exit" << endl;
         cout << "Please Enter your choice ==> ";
         
@@ -81,7 +82,8 @@ int main()
                _1st_caps_file();
 		break;
             case 15:
-                continue;
+		Save();
+                break;
             case 16:
                 file.close();
                 run = false;
