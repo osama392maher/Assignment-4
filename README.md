@@ -1,2 +1,1 @@
-# 
-Console Login Application & Console Text Editor Application
+# Console Login Application & Console Text Editor Application
